@@ -14,10 +14,14 @@ class LoginScreen extends StatelessWidget {
       body: Scaffold(
         body: Column(
           children: [
-            Text('Login Screen'),
             PrimaryInput(
               label: 'Email',
               hintText: 'Enter your email',
+              controller: TextEditingController(),
+            ),
+              PrimaryInput(
+              label: 'Password',
+              hintText: 'Enter your password',
               controller: TextEditingController(),
             ),
             SizedBox(
