@@ -20,6 +20,11 @@ class LoginScreen extends StatelessWidget {
               hintText: 'Enter your email',
               controller: TextEditingController(),
             ),
+             PrimaryInput(
+              label: 'Password',
+              hintText: 'Enter your password',
+              controller: TextEditingController(),
+            ),
             SizedBox(
               child: PrimaryButton(
                 title: 'Go to Registration',
