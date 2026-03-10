@@ -81,7 +81,7 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: 25),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
+                backgroundColor: Colors.teal[900],
                 minimumSize: Size(350, 60),
               ),
               onPressed: () {},
