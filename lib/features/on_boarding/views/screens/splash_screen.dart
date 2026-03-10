@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:leafy/core/navigation/app_router.dart';
 
-void main() {
-  runApp(const LeafyApp());
-}
 
-class LeafyApp extends StatelessWidget {
-  const LeafyApp({super.key});
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
-  }
+  State<SplashScreen> createState() => _SplashScreenState();
+
+  
 }
 
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
+class _SplashScreenState extends State<SplashScreen> {
+
+@override
+void initState() {
+  super.initState();
+  Future.delayed(Duration.zero,(){
+    context.goNamed(AppRouter.loginName);
+  });
+}
 
   @override
   Widget build(BuildContext context) {
