@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leafy/features/authentication/views/screens/login_screen.dart';
 import 'dart:async';
 
 import '../../../../core/themes/colors.dart';
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const SearchingScreen(),
+          builder: (context) => const LoginScreen(),
         ),
       );
     });

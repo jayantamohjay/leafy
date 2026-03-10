@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../searching/views/screens/searching_screen.dart';
 import '../widgets/bottom_nav_bar.dart';
+import 'home_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({super.key});
@@ -13,11 +14,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    HomeScreen(), //0th
-    Container(
-      color: Colors.orange,
-      child: Center(child: Text("Explore Page")),
-    ), //1st
+    HomeScreen(),
+    DiscoverPage(), 
     Center(child: Text("Cart Page")), //2nd
     Center(child: Text("Account Page")), //3rd
   ];

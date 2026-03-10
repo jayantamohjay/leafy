@@ -7,6 +7,8 @@ import 'package:leafy/features/on_boarding/views/screens/splash_screen.dart' hid
 import 'package:leafy/features/profile_management/views/screens/my_profile_screen.dart';
 import 'package:leafy/features/searching/views/screens/searching_screen.dart';
 
+import '../../features/dashBoard/screens/home_screen.dart';
+
 class AppRouter {
   static const String splashName = 'splash';
   static const String loginName = 'login';
@@ -43,11 +45,7 @@ class AppRouter {
         name: cartName,
         builder: (context, state) => const CartScreen(),
       ),
-      GoRoute(
-        path: '/$homeName',
-        name: homeName,
-        builder: (context, state) => const HomeScreen(),
-      ),
+    
       GoRoute(
         path: '/$profileName',
         name: profileName,

@@ -1,67 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:leafy/core/themes/colors.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _SearchingScreenState();
-}
-
-class _SearchingScreenState extends State<HomeScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actionsPadding: EdgeInsets.only(right: 20),
-        leadingWidth: MediaQuery.sizeOf(context).width*0.5,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Good Morning',
-                style: TextStyle(fontSize: 14, color: Colors.grey[700]),
-              ),
-              SizedBox(height: 2),
-              Text(
-                'Welcome',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 35, 97, 62),
-                ),
-              ),
-            ],
-          ),
-        ),
-
-        actions: [
-          Container(
-            width: 36,
-            height: 36,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: Color(0xFF2A3A31), width: 1),
-            ),
-            child: Icon(
-              Icons.person,
-              color: Color.fromARGB(255, 0, 85, 37),
-              size: 20,
-            ),
-          ),
-        ],
-      ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text("OTHER "),
-        ),
-      ),
-    );
-  }
-}
 
 class DiscoverPage extends StatelessWidget {
   const DiscoverPage({super.key});
@@ -98,12 +38,12 @@ class DiscoverPage extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 15),
                 height: 55,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Appcolors.white,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.search, color: Colors.grey),
+                    const Icon(Icons.search, color: Appcolors.grey),
                     const SizedBox(width: 10),
                     const Expanded(
                       child: TextField(
@@ -115,11 +55,11 @@ class DiscoverPage extends StatelessWidget {
                     ),
                     Container(
                       decoration: const BoxDecoration(
-                        color: Color(0xff0F3D2E),
+                        color: Appcolors.primaryColor,
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(8),
-                      child: const Icon(Icons.tune, color: Colors.white),
+                      child: const Icon(Icons.equalizer, color: Colors.white),
                     )
                   ],
                 ),
@@ -150,7 +90,7 @@ class DiscoverPage extends StatelessWidget {
               const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children:  [
                   Text(
                     "RECENT SEARCHES",
                     style: TextStyle(
@@ -161,7 +101,7 @@ class DiscoverPage extends StatelessWidget {
                   Text(
                     "Clear All",
                     style: TextStyle(
-                      color: Colors.green,
+                      color: Appcolors.secondaryColor
                     ),
                   )
                 ],
@@ -182,7 +122,7 @@ class DiscoverPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
+                  color: Appcolors.grey,
                   borderRadius: BorderRadius.circular(18),
                 ),
                 child: Column(
@@ -199,7 +139,7 @@ class DiscoverPage extends StatelessWidget {
                     Text(
                       "Talk to a botanist",
                       style: TextStyle(
-                        color: Colors.green,
+                        color: Appcolors.secondaryColor,
                         decoration: TextDecoration.underline,
                       ),
                     )
