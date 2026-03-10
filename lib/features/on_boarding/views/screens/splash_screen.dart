@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
-void main() {
-  runApp(const LeafyApp());
-}
 
 class LeafyApp extends StatelessWidget {
   const LeafyApp({super.key});
@@ -16,8 +14,28 @@ class LeafyApp extends StatelessWidget {
   }
 }
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SearchingScreen(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +62,7 @@ class SplashScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 40),
+
             const Text(
               "Leafy",
               style: TextStyle(
@@ -54,6 +73,7 @@ class SplashScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 6),
+
             const Text(
               "Bring nature home",
               style: TextStyle(
@@ -63,6 +83,7 @@ class SplashScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 50),
+
             SizedBox(
               width: 200,
               child: LinearProgressIndicator(
@@ -75,6 +96,7 @@ class SplashScreen extends StatelessWidget {
             ),
 
             const SizedBox(height: 10),
+
             const Text(
               "LOADING",
               style: TextStyle(
@@ -84,6 +106,22 @@ class SplashScreen extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class SearchingScreen extends StatelessWidget {
+  const SearchingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          "Searching Screen",
+          style: TextStyle(fontSize: 24),
         ),
       ),
     );
