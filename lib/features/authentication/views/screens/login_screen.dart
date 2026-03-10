@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:leafy/core/themes/colors.dart';
+import 'package:leafy/core/widgets/primary_button.dart';
 import '../../../../core/widgets/primary_input.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -20,7 +22,7 @@ class LoginScreen extends StatelessWidget {
           children: [
             SizedBox(height: 25),
             CircleAvatar(
-              backgroundColor: Colors.grey[300],
+              backgroundColor: Appcolors.primaryColor.withValues(alpha: 0.3),
               minRadius: 35,
               child: Icon(Icons.spa_outlined, size: 35, color: Colors.black),
             ),
@@ -77,17 +79,21 @@ class LoginScreen extends StatelessWidget {
 
             //  Text('Forgot password?',style:TextStyle(fontWeight: FontWeight.bold) ,),
             SizedBox(height: 25),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                minimumSize: Size(350, 60),
-              ),
-              onPressed: () {},
-              child: Text(
-                'Login',
-                style: TextStyle(fontSize: 17, color: Colors.white),
-              ),
-            ),
+            SizedBox(
+              height: 35,
+              width: MediaQuery.sizeOf(context).width*0.8,
+              child: PrimaryButton(onPressed: (){}, title: 'Login', isLoading: false)),
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //     backgroundColor: Colors.black,
+            //     minimumSize: Size(350, 60),
+            //   ),
+            //   onPressed: () {},
+            //   child: Text(
+            //     'Login',
+            //     style: TextStyle(fontSize: 17, color: Colors.white),
+            //   ),
+            // ),
             SizedBox(height: 25),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,

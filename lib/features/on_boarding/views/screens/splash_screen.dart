@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:leafy/core/navigation/app_router.dart';
+import 'package:leafy/core/themes/colors.dart';
 
 
 
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 @override
 void initState() {
   super.initState();
-  Future.delayed(Duration.zero,(){
+  Future.delayed(Duration(seconds: 4),(){
     context.goNamed(AppRouter.loginName);
   });
 }
@@ -26,7 +27,7 @@ void initState() {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE9ECEB),
+      // backgroundColor: const Color(0xFFE9ECEB),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -53,7 +54,7 @@ void initState() {
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF1B2B22),
+                color: Appcolors.primaryColor
               ),
             ),
 
@@ -62,7 +63,7 @@ void initState() {
               "Bring nature home",
               style: TextStyle(
                 fontSize: 13,
-                color: Colors.black54,
+                
               ),
             ),
 
@@ -70,10 +71,10 @@ void initState() {
             SizedBox(
               width: 200,
               child: LinearProgressIndicator(
-                value: 0.35,
-                backgroundColor: Colors.grey,
+                value:0.8,
+                backgroundColor: Appcolors.lightGrey,
                 valueColor:
-                    const AlwaysStoppedAnimation<Color>(Colors.green),
+                    const AlwaysStoppedAnimation<Color>(Appcolors.secondaryColor),
                 minHeight: 4,
               ),
             ),
@@ -84,7 +85,6 @@ void initState() {
               style: TextStyle(
                 letterSpacing: 2,
                 fontSize: 11,
-                color: Colors.black45,
               ),
             ),
           ],
