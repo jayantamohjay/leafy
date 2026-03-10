@@ -85,7 +85,9 @@ class LoginScreen extends StatelessWidget {
                 backgroundColor: Colors.teal[900],
                 minimumSize: Size(350, 60),
               ),
-              onPressed: () {},
+              onPressed: () {
+                context.goNamed(AppRouter.dashboardName);
+              },
               child: Text(
                 'Login',
                 style: TextStyle(fontSize: 17, color: Colors.white),

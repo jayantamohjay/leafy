@@ -13,7 +13,7 @@ class AppRouter {
   static const String registrationName = 'registration';
   static const String dashboardName = 'dashboard';
   static const String cartName = 'cart';
-  static const String searchName = 'search';
+  static const String homeName = 'home';
   static const String profileName = 'profile';
 
   static final GoRouter router = GoRouter(
@@ -44,9 +44,9 @@ class AppRouter {
         builder: (context, state) => const CartScreen(),
       ),
       GoRoute(
-        path: '/$searchName',
-        name: searchName,
-        builder: (context, state) => const SearchingScreen(),
+        path: '/$homeName',
+        name: homeName,
+        builder: (context, state) => const HomeScreen(),
       ),
       GoRoute(
         path: '/$profileName',
