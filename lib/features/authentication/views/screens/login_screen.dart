@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:leafy/core/navigation/app_router.dart';
 import 'package:leafy/core/themes/colors.dart';
 import 'package:leafy/core/widgets/primary_button.dart';
 import '../../../../core/widgets/primary_input.dart';
@@ -103,7 +105,9 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.grey),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(AppRouter.registrationName);
+                  },
                   child: Text(
                     'Sign Up',
                     style: TextStyle(

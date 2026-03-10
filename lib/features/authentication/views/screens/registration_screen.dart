@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:leafy/features/authentication/views/screens/login_screen.dart';
 import '../../../../core/themes/colors.dart';
+import '../../../../core/widgets/primary_input.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String routeName = '/registration';
@@ -33,7 +34,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appcolors.lightBackgroundColor,
+      
+      // backgroundColor: Appcolors.lightBackgroundColor,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -73,11 +75,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   style: TextStyle(color: Appcolors.grey, fontSize: 14),
                 ),
                 const SizedBox(height: 30),
-                const Text("Full Name"),
-                const SizedBox(height: 8),
-                TextField(
-                  decoration: fieldDecoration("John Doe", Icons.person_outline),
-                ),
+             PrimaryInput(
+              controller: TextEditingController(),
+              hintText: 'Enter your full name',
+              label: 'Full Name',
+              
+             ),
                 const SizedBox(height: 18),
                 const Text("Email Address"),
                 const SizedBox(height: 8),
