@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:leafy/core/navigation/app_router.dart';
 import 'package:leafy/core/themes/colors.dart';
-import 'package:leafy/core/widgets/primary_button.dart';
 import '../../../../core/widgets/primary_input.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -81,24 +80,17 @@ class LoginScreen extends StatelessWidget {
 
             //  Text('Forgot password?',style:TextStyle(fontWeight: FontWeight.bold) ,),
             SizedBox(height: 25),
-            SizedBox(
-              height: 35,
-              width: MediaQuery.sizeOf(context).width*0.8,
-              child: PrimaryButton(onPressed: (){
-                    context.pushNamed(AppRouter.dashboardName);
-
-              }, title: 'Login', isLoading: false)),
-            // ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //     backgroundColor: Colors.black,
-            //     minimumSize: Size(350, 60),
-            //   ),
-            //   onPressed: () {},
-            //   child: Text(
-            //     'Login',
-            //     style: TextStyle(fontSize: 17, color: Colors.white),
-            //   ),
-            // ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.teal[900],
+                minimumSize: Size(350, 60),
+              ),
+              onPressed: () {},
+              child: Text(
+                'Login',
+                style: TextStyle(fontSize: 17, color: Colors.white),
+              ),
+            ),
             SizedBox(height: 25),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
