@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:leafy/features/authentication/views/screens/registration_screen.dart';
+import 'package:leafy/features/cartManagement/views/screens/cart_screen.dart';
 import '../../../../core/widgets/primary_button.dart';
 import '../../../../core/widgets/primary_input.dart';
 
@@ -25,9 +25,7 @@ class LoginScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const RegistrationScreen(),
-                  ),
+                  MaterialPageRoute(builder: (context) => const CartScreen()),
                 );
               },
               isLoading: false,
