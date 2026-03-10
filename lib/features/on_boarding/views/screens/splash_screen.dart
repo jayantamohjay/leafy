@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:leafy/core/navigation/app_router.dart';
-import 'package:leafy/core/themes/colors.dart';
+import 'dart:async';
+
+import '../../../../core/themes/colors.dart';
+
+
 
 
 
@@ -10,19 +12,23 @@ class SplashScreen extends StatefulWidget {
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
-
-  
 }
 
 class _SplashScreenState extends State<SplashScreen> {
 
-@override
-void initState() {
-  super.initState();
-  Future.delayed(Duration(seconds: 4),(){
-    context.goNamed(AppRouter.loginName);
-  });
-}
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(const Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const SearchingScreen(),
+        ),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +55,7 @@ void initState() {
             ),
 
             const SizedBox(height: 40),
+
             const Text(
               "Leafy",
               style: TextStyle(
@@ -59,6 +66,7 @@ void initState() {
             ),
 
             const SizedBox(height: 6),
+
             const Text(
               "Bring nature home",
               style: TextStyle(
@@ -68,6 +76,7 @@ void initState() {
             ),
 
             const SizedBox(height: 50),
+
             SizedBox(
               width: 200,
               child: LinearProgressIndicator(
@@ -80,6 +89,7 @@ void initState() {
             ),
 
             const SizedBox(height: 10),
+
             const Text(
               "LOADING",
               style: TextStyle(
@@ -88,6 +98,22 @@ void initState() {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class SearchingScreen extends StatelessWidget {
+  const SearchingScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: Text(
+          "Searching Screen",
+          style: TextStyle(fontSize: 24),
         ),
       ),
     );
