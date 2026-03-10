@@ -25,20 +25,23 @@ class PrimaryInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label),
-        TextField(
-          controller: controller,
-
-          decoration: InputDecoration(
-            hintText: hintText,
-            suffix: suffixIcon,
-            fillColor: Appcolors.white,
-            filled: true,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(14),
-              borderSide: BorderSide.none,
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: TextField(
+            controller: controller,
+            
+            decoration: InputDecoration(
+              hintText: hintText,
+              suffixIcon: suffixIcon,
+              fillColor: Appcolors.white,
+              filled: true,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+                borderSide: BorderSide.none,
+              ),
             ),
+            obscureText: obscureText,
           ),
-          obscureText: obscureText,
         ),
       ],
     );
