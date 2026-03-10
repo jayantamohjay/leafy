@@ -30,7 +30,7 @@ class _FigmaState extends State<Figma> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.green,
+        selectedItemColor: const Color.fromARGB(255, 253, 253, 253),
         unselectedItemColor: Colors.grey,
 
         items: const [
