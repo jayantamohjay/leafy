@@ -16,7 +16,7 @@ class _CartItemState extends State<CartItem> {
           padding: const EdgeInsets.all(8.0),
 
           child: Container(
-            height: 291,
+            height: 280,
             width: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
@@ -29,10 +29,16 @@ class _CartItemState extends State<CartItem> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.network(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUOmpH1nqEyAjjVrMjA6e0SLx9hpvrCOLBuA&s',
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                    12,
+                  ), // change radius as needed
+                  child: Image.network(
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR05Uvc2_cuEj7VpWLT0OclBolefGyKQBjTiQ&s',
+                    fit: BoxFit.cover,
+                  ),
                 ),
-                SizedBox(height: 35),
+                SizedBox(height: 25),
                 Align(
                   alignment: Alignment.bottomLeft,
                   child: Text(
