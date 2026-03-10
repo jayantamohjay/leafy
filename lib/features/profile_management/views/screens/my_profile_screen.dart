@@ -11,7 +11,7 @@ class MyProfileScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "Account",
-          style: TextStyle(color: Color.fromARGB(255, 20, 43, 21),fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 20, 43, 21),fontSize:16,fontWeight:FontWeight.bold),
         ),
         backgroundColor: const Color(0xfff4f6f5),
         elevation: 0,
