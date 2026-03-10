@@ -11,7 +11,7 @@ class BottomNavScreen extends StatelessWidget {
     return Scaffold(
       appBar: dashBoardAppBar(),
       body: const Placeholder(),
-      bottomNavigationBar: AppButtomNavBar(),
+      bottomNavigationBar: Figma(),
     );
   }
 }
