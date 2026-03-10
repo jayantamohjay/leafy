@@ -36,7 +36,7 @@ class AppRouter {
       GoRoute(
         path: '/$dashboardName',
         name: dashboardName,
-        builder: (context, state) => const BottomNavScreen(),
+        builder: (context, state) =>  BottomNavScreen(),
       ),
       GoRoute(
         path: '/$cartName',

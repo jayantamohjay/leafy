@@ -84,7 +84,10 @@ class LoginScreen extends StatelessWidget {
             SizedBox(
               height: 35,
               width: MediaQuery.sizeOf(context).width*0.8,
-              child: PrimaryButton(onPressed: (){}, title: 'Login', isLoading: false)),
+              child: PrimaryButton(onPressed: (){
+                    context.pushNamed(AppRouter.dashboardName);
+
+              }, title: 'Login', isLoading: false)),
             // ElevatedButton(
             //   style: ElevatedButton.styleFrom(
             //     backgroundColor: Colors.black,
