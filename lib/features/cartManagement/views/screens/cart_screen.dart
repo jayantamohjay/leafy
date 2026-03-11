@@ -17,21 +17,21 @@ class _CartScreenState extends State<CartScreen> {
       "subtitle": "Tropical Plant",
       "price": 24.0,
       "image": "assets/images/image1.jpg",
-      "qty": 1,
+      "qty": 0,
     },
     {
       "title": "Snake Plant",
       "subtitle": "Air Purifier",
       "price": 15.0,
       "image": "assets/images/image2.jpg",
-      "qty": 1,
+      "qty": 0,
     },
     {
       "title": "Fiddle Leaf Fig",
       "subtitle": "Indoor Tree",
       "price": 45.0,
       "image": "assets/images/image3.jpg",
-      "qty": 1,
+      "qty": 0,
     },
   ];
 
@@ -47,6 +47,14 @@ class _CartScreenState extends State<CartScreen> {
         cartItems[index]["qty"]--;
       }
     });
+  }
+
+  double getSubtotal() {
+    double subtotal = 0;
+    for (var item in cartItems) {
+      subtotal += item["price"] * item["qty"];
+    }
+    return subtotal;
   }
 
   Widget cartItem(int index) {
@@ -73,7 +81,9 @@ class _CartScreenState extends State<CartScreen> {
               child: Image.asset(item["image"], fit: BoxFit.cover),
             ),
           ),
+
           const SizedBox(width: 12),
+
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,12 +96,16 @@ class _CartScreenState extends State<CartScreen> {
                     color: Appcolors.black,
                   ),
                 ),
+
                 const SizedBox(height: 3),
+
                 Text(
                   item["subtitle"],
                   style: const TextStyle(fontSize: 13, color: Appcolors.grey),
                 ),
+
                 const SizedBox(height: 6),
+
                 Text(
                   "\$${item["price"]}",
                   style: const TextStyle(
@@ -103,10 +117,13 @@ class _CartScreenState extends State<CartScreen> {
               ],
             ),
           ),
+
           Column(
             children: [
               const Icon(Icons.delete_outline, size: 18, color: Appcolors.grey),
+
               const SizedBox(height: 10),
+
               Row(
                 children: [
                   GestureDetector(
@@ -121,12 +138,16 @@ class _CartScreenState extends State<CartScreen> {
                       child: const Icon(Icons.remove, size: 16),
                     ),
                   ),
+
                   const SizedBox(width: 8),
+
                   Text(
                     item["qty"].toString(),
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
+
                   const SizedBox(width: 8),
+
                   GestureDetector(
                     onTap: () => increment(index),
                     child: Container(
@@ -154,37 +175,130 @@ class _CartScreenState extends State<CartScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double subtotal = getSubtotal();
+    double shipping = 5.0;
+    double total = subtotal + shipping;
+
     return Scaffold(
       backgroundColor: Appcolors.lightBackgroundColor,
+
       appBar: AppBar(
         backgroundColor: Appcolors.lightBackgroundColor,
         elevation: 0,
         centerTitle: true,
         title: const Text(
           "Your Basket",
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Appcolors.black,
-          ),
+          style: TextStyle(color: Appcolors.black, fontWeight: FontWeight.bold),
         ),
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              Expanded(
-                child: ListView.builder(
-                  itemCount: cartItems.length,
-                  itemBuilder: (context, index) {
-                    return cartItem(index);
-                  },
-                ),
+
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: cartItems.length,
+                itemBuilder: (context, index) {
+                  return cartItem(index);
+                },
               ),
-            ],
-          ),
+            ),
+
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Appcolors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Subtotal",
+                        style: TextStyle(color: Appcolors.grey),
+                      ),
+                      Text(
+                        "\$${subtotal.toStringAsFixed(2)}",
+                        style: const TextStyle(color: Appcolors.grey),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 8),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Shipping",
+                        style: TextStyle(color: Appcolors.grey),
+                      ),
+                      Text(
+                        "\$${shipping.toStringAsFixed(2)}",
+                        style: const TextStyle(color: Appcolors.grey),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 15),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        "Total",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      Text(
+                        "\$${total.toStringAsFixed(2)}",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(height: 20),
+
+                  Container(
+                    height: 55,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Appcolors.primaryColor,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Proceed to Checkout",
+                          style: TextStyle(
+                            color: Appcolors.white,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 8),
+                        Icon(Icons.arrow_forward, color: Appcolors.white),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 10),
+          ],
         ),
       ),
     );
