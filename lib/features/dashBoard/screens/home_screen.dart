@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:leafy/core/themes/colors.dart';
+
+import '../widgets/product_item.dart';
+import '../widgets/products_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,8 +16,10 @@ class _SearchingScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actionsPadding: EdgeInsets.only(right: 20),
-        leadingWidth: MediaQuery.sizeOf(context).width*0.5,
+        leadingWidth: MediaQuery.sizeOf(context).width * 0.5,
         leading: Padding(
           padding: const EdgeInsets.only(left: 20),
           child: Column(
@@ -53,11 +59,33 @@ class _SearchingScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text("OTHER "),
-        ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: MediaQuery.sizeOf(context).height * 0.3,
+            width: MediaQuery.sizeOf(context).width,
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return ProductItem();
+              },
+              scrollDirection: Axis.horizontal,
+            ),
+          ),
+          Expanded(
+            child: GridView.builder(
+              itemCount: 20,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 0.65,
+              ),
+              itemBuilder: (context, index) {
+                return ProductsCard();
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
