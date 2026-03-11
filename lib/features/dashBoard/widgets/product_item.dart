@@ -20,7 +20,7 @@ class _CartItemState extends State<CartItem> {
             width: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
+              color: Colors.white, 
             ),
             padding: EdgeInsets.all(15),
             //  margin: EdgeInsetsDirectional.all(20),
@@ -29,7 +29,7 @@ class _CartItemState extends State<CartItem> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ClipRRect(
+                ClipRRect( 
                   borderRadius: BorderRadius.circular(
                     12,
                   ), // change radius as needed

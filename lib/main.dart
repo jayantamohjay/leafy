@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:leafy/core/navigation/app_router.dart';
 import 'package:leafy/core/themes/light_theme.dart';
-import 'package:leafy/features/dashBoard/widgets/cart_item.dart';
+import 'package:leafy/features/dashBoard/widgets/product_item.dart';
+import 'package:leafy/features/dashBoard/widgets/products.dart';
 
 
 void main() {
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
   debugShowCheckedModeBanner: false,
   theme: AppTheme().lightTheme(),
-  home: CartItem(),
+  home: Products(),
     );
    
   }
