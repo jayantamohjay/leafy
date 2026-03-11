@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:leafy/core/themes/colors.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,12 +58,12 @@ class SearchingScreen extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 height: 50,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Appcolors.white,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.search, color: Colors.grey),
+                    const Icon(Icons.search, color: Appcolors.grey),
                     const SizedBox(width: 10),
                     const Expanded(
                       child: TextField(
@@ -74,11 +75,11 @@ class SearchingScreen extends StatelessWidget {
                     ),
                     Container(
                       decoration: const BoxDecoration(
-                        color: Color(0xff1E5F3D),
+                        color: Appcolors.secondaryColor,
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(8),
-                      child: const Icon(Icons.tune, color: Colors.white, size: 18),
+                      child: const Icon(Icons.tune, color: Appcolors.white, size: 18),
                     )
                   ],
                 ),
@@ -90,15 +91,15 @@ class SearchingScreen extends StatelessWidget {
                 "SUGGESTED CATEGORIES",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.grey,
+                  color: Appcolors.grey,
                   fontWeight: FontWeight.bold,
                 ),
               ),
 
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               Wrap(
-                spacing: 10,
-                runSpacing: 10,
+                spacing: 20,
+                runSpacing: 20,
                 children: [
                   categoryChip("Indoor", true),
                   categoryChip("Outdoor", false),
@@ -116,7 +117,7 @@ class SearchingScreen extends StatelessWidget {
                     "RECENT SEARCHES",
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey,
+                      color: Appcolors.grey,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -124,7 +125,7 @@ class SearchingScreen extends StatelessWidget {
                     "Clear All",
                     style: TextStyle(
                       fontSize: 12,
-                      color: Colors.grey,
+                      color: Appcolors.grey,
                     ),
                   )
                 ],
@@ -141,7 +142,7 @@ class SearchingScreen extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Appcolors.white,
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
@@ -161,7 +162,7 @@ class SearchingScreen extends StatelessWidget {
                           Text(
                             "Talk to a botanist",
                             style: TextStyle(
-                              color: Color(0xff1E5F3D),
+                              color: Appcolors.green,
                               fontWeight: FontWeight.w600,
                               decoration: TextDecoration.underline,
                             ),
