@@ -46,7 +46,7 @@ class AppRouter {
       GoRoute(
         path: '/$searchName',
         name: searchName,
-        builder: (context, state) => const DiscoverPage(),
+        builder: (context, state) => const SearchingScreen(),
       ),
       GoRoute(
         path: '/$profileName',

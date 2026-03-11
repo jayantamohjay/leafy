@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 
-class DiscoverPage extends StatelessWidget {
-  const DiscoverPage({super.key});
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SearchingScreen(),
+    );
+  }
+}
+
+class SearchingScreen extends StatelessWidget {
+  const SearchingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -9,34 +25,43 @@ class DiscoverPage extends StatelessWidget {
       backgroundColor: const Color(0xffF4F6F5),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+
+              /// Top Bar
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
                     "Discover",
                     style: TextStyle(
-                      fontSize: 28,
+                      fontSize: 26,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  CircleAvatar(
-                    backgroundColor: Colors.orange.shade200,
-                    child: const Icon(Icons.person),
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: const BoxDecoration(
+                      color: Color(0xffF2A65A),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.search, color: Colors.white),
                   )
                 ],
               ),
 
               const SizedBox(height: 20),
+
+              /// Search Bar
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                height: 55,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                height: 50,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 child: Row(
                   children: [
@@ -52,11 +77,11 @@ class DiscoverPage extends StatelessWidget {
                     ),
                     Container(
                       decoration: const BoxDecoration(
-                        color: Color(0xff0F3D2E),
+                        color: Color(0xff1E5F3D),
                         shape: BoxShape.circle,
                       ),
                       padding: const EdgeInsets.all(8),
-                      child: const Icon(Icons.tune, color: Colors.white),
+                      child: const Icon(Icons.tune, color: Colors.white, size: 18),
                     )
                   ],
                 ),
@@ -67,15 +92,18 @@ class DiscoverPage extends StatelessWidget {
               const Text(
                 "SUGGESTED CATEGORIES",
                 style: TextStyle(
-                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
                   color: Colors.grey,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
 
               const SizedBox(height: 15),
+
+              /// Category Chips
               Wrap(
-                spacing: 12,
-                runSpacing: 12,
+                spacing: 10,
+                runSpacing: 10,
                 children: [
                   categoryChip("Indoor", true),
                   categoryChip("Outdoor", false),
@@ -85,64 +113,83 @@ class DiscoverPage extends StatelessWidget {
               ),
 
               const SizedBox(height: 25),
+
+              /// Recent Searches
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
                   Text(
                     "RECENT SEARCHES",
                     style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
                       color: Colors.grey,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     "Clear All",
                     style: TextStyle(
-                      color: Colors.green,
+                      fontSize: 12,
+                      color: Colors.grey,
                     ),
                   )
                 ],
               ),
 
-              const SizedBox(height: 15),
-              Expanded(
-                child: ListView(
+              const SizedBox(height: 10),
+
+              recentItem("Monstera Deliciosa"),
+              recentItem("Snake Plant Laurentii"),
+              recentItem("Watering cans large"),
+              recentItem("Low light ferns"),
+
+              const Spacer(),
+
+              /// Help Card
+              Container(
+                padding: const EdgeInsets.all(18),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
                   children: [
-                    recentItem("Monstera Deliciosa"),
-                    recentItem("Snake Plant Laurentii"),
-                    recentItem("Watering cans large"),
-                    recentItem("Low light ferns"),
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Can't find what you need?",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Text(
+                            "Talk to a botanist",
+                            style: TextStyle(
+                              color: Color(0xff1E5F3D),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: 40,
+                      width: 40,
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(Icons.help_outline),
+                    )
                   ],
                 ),
               ),
 
-              Container(
-                padding: const EdgeInsets.all(18),
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade200,
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Text(
-                      "Can't find what you need?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Talk to a botanist",
-                      style: TextStyle(
-                        color: Colors.green,
-                        decoration: TextDecoration.underline,
-                      ),
-                    )
-                  ],
-                ),
-              )
+              const SizedBox(height: 20)
             ],
           ),
         ),
@@ -150,12 +197,13 @@ class DiscoverPage extends StatelessWidget {
     );
   }
 
-  Widget categoryChip(String text, bool active) {
+  /// Category Chip
+  static Widget categoryChip(String text, bool active) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
       decoration: BoxDecoration(
-        color: active ? const Color(0xff0F3D2E) : Colors.white,
-        borderRadius: BorderRadius.circular(30),
+        color: active ? const Color(0xff1E5F3D) : Colors.white,
+        borderRadius: BorderRadius.circular(25),
       ),
       child: Text(
         text,
@@ -167,11 +215,13 @@ class DiscoverPage extends StatelessWidget {
     );
   }
 
-  Widget recentItem(String text) {
+  /// Recent Search Item
+  static Widget recentItem(String text) {
     return ListTile(
+      contentPadding: EdgeInsets.zero,
       leading: const Icon(Icons.history, color: Colors.grey),
       title: Text(text),
-      trailing: const Icon(Icons.close, color: Colors.grey),
+      trailing: const Icon(Icons.close, size: 18),
     );
   }
 }
