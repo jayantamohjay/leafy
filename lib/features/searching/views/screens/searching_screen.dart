@@ -22,7 +22,6 @@ class _SearchingScreenState extends State<SearchingScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /// Top Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -45,7 +44,6 @@ class _SearchingScreenState extends State<SearchingScreen> {
                   ],
                 ),
 
-                /// Profile Icon
                 Container(
                   width: 36,
                   height: 36,
@@ -65,15 +63,14 @@ class _SearchingScreenState extends State<SearchingScreen> {
               ],
             ),
 
-            const SizedBox(height: 19),
+            const SizedBox(height: 10),
 
-            /// Search Bar
             TextField(
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.search),
                 hintText: 'Search for your next plant.....',
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(27),
                 ),
               ),
             ),
