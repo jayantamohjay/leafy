@@ -63,7 +63,7 @@ class MyProfileScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 9, 29, 10),
+                color: Color.fromARGB(255, 9, 29, 9),
               ),
             ),
           ),
