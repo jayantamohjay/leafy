@@ -28,7 +28,7 @@ class _SearchingScreenState extends State<HomeScreen> {
             children: [
               Text(
                 'Good Morning',
-                style: TextStyle(fontSize: 14, color: Colors.grey[700]),
+                style: TextStyle(fontSize: 14, color: Appcolors.grey),
               ),
               const SizedBox(height: 2),
               const Text(
@@ -36,7 +36,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 35, 97, 62),
+                  color: Appcolors.primaryColor,
                 ),
               ),
             ],
@@ -64,7 +64,7 @@ class _SearchingScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+             SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(25),
               child: TextField(
@@ -105,7 +105,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                     onSelected: (value) {},
                   ),
 
-                  const SizedBox(width: 10),
+                   SizedBox(width: 10),
 
                   ChoiceChip(
                     shape: RoundedRectangleBorder(
@@ -197,6 +197,7 @@ class _SearchingScreenState extends State<HomeScreen> {
             ),
 
             SizedBox(height: 10),
+          
 
             Padding(
               padding: const EdgeInsets.all(8.0),
