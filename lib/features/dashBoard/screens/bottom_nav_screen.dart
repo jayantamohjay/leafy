@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../cartManagement/views/screens/cart_screen.dart';
 import '../../searching/views/screens/searching_screen.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_screen.dart';
@@ -15,8 +16,8 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final List<Widget> _pages = [
     HomeScreen(),
-    DiscoverPage(), 
-    Center(child: Text("Cart Page")), //2nd
+    DiscoverPage(),
+    CartScreen(), //2nd
     Center(child: Text("Account Page")), //3rd
   ];
 

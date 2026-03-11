@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:leafy/core/navigation/app_router.dart';
 import 'package:leafy/features/authentication/views/screens/login_screen.dart';
 import 'dart:async';
 
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Future.delayed(Duration(seconds: 3), () {
-      context.push(LoginScreen.routeName);
+      context.goNamed(AppRouter.loginName);
     });
   }
 

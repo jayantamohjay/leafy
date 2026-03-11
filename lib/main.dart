@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: AppTheme().lightTheme(),
-      home: Products(),
+      routerConfig: AppRouter.router,
     );
   }
 }

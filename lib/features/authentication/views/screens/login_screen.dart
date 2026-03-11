@@ -1,39 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:leafy/features/cartManagement/views/screens/cart_screen.dart';
 import '../../../../core/navigation/app_router.dart';
-import '../../../../core/widgets/primary_button.dart';
+import '../../../../core/themes/colors.dart';
 import '../../../../core/widgets/primary_input.dart';
 
 class LoginScreen extends StatelessWidget {
-  static const String routeName = '/login';
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: const Text('Login'), centerTitle: true),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text('Login Screen'),
-          PrimaryInput(
-            label: 'Email',
-            hintText: 'Enter your email',
-            controller: TextEditingController(),
-          ),
-          SizedBox(
-            child: PrimaryButton(
-              title: 'Go to Registration',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const CartScreen()),
-                );
-              },
-              isLoading: false,
+          Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+              color: Appcolors.green.withAlpha(40),
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: const Icon(
+              Icons.spa,
+              color: Appcolors.secondaryColor,
+              size: 30,
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
           Text(
             'Welcome back',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
