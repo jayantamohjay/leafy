@@ -1,13 +1,11 @@
 import 'package:go_router/go_router.dart';
-import 'package:leafy/features/authentication/views/screens/login_screen.dart';
-import 'package:leafy/features/authentication/views/screens/registration_screen.dart';
-import 'package:leafy/features/cartManagement/views/screens/cart_screen.dart';
-import 'package:leafy/features/dashBoard/screens/bottom_nav_screen.dart';
-import 'package:leafy/features/on_boarding/views/screens/splash_screen.dart' hide SearchingScreen;
-import 'package:leafy/features/profile_management/views/screens/my_profile_screen.dart';
-import 'package:leafy/features/searching/views/screens/searching_screen.dart';
 
-import '../../features/dashBoard/screens/home_screen.dart';
+import '../../features/authentication/views/screens/login_screen.dart';
+import '../../features/authentication/views/screens/registration_screen.dart';
+import '../../features/cartManagement/views/screens/cart_screen.dart';
+import '../../features/dashBoard/screens/bottom_nav_screen.dart';
+import '../../features/on_boarding/views/screens/splash_screen.dart';
+import '../../features/profile_management/views/screens/my_profile_screen.dart';
 
 class AppRouter {
   static const String splashName = 'splash';
@@ -38,14 +36,14 @@ class AppRouter {
       GoRoute(
         path: '/$dashboardName',
         name: dashboardName,
-        builder: (context, state) =>  BottomNavScreen(),
+        builder: (context, state) => BottomNavScreen(),
       ),
       GoRoute(
         path: '/$cartName',
         name: cartName,
         builder: (context, state) => const CartScreen(),
       ),
-    
+
       GoRoute(
         path: '/$profileName',
         name: profileName,
