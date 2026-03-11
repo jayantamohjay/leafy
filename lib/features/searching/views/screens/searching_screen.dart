@@ -29,8 +29,6 @@ class SearchingScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
-              /// Top Bar
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,7 +53,6 @@ class SearchingScreen extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              /// Search Bar
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 height: 50,
@@ -99,8 +96,6 @@ class SearchingScreen extends StatelessWidget {
               ),
 
               const SizedBox(height: 15),
-
-              /// Category Chips
               Wrap(
                 spacing: 10,
                 runSpacing: 10,
@@ -114,7 +109,6 @@ class SearchingScreen extends StatelessWidget {
 
               const SizedBox(height: 25),
 
-              /// Recent Searches
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: const [
@@ -144,8 +138,6 @@ class SearchingScreen extends StatelessWidget {
               recentItem("Low light ferns"),
 
               const Spacer(),
-
-              /// Help Card
               Container(
                 padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
@@ -197,7 +189,6 @@ class SearchingScreen extends StatelessWidget {
     );
   }
 
-  /// Category Chip
   static Widget categoryChip(String text, bool active) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
@@ -215,7 +206,6 @@ class SearchingScreen extends StatelessWidget {
     );
   }
 
-  /// Recent Search Item
   static Widget recentItem(String text) {
     return ListTile(
       contentPadding: EdgeInsets.zero,
