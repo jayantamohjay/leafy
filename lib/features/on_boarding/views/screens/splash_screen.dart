@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:leafy/features/authentication/views/screens/login_screen.dart';
 import 'dart:async';
 
 import '../../../../core/themes/colors.dart';
-
-
-
-
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,18 +13,12 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
 
-    Timer(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const LoginScreen(),
-        ),
-      );
+    Future.delayed(Duration(seconds: 3), () {
+      context.push(LoginScreen.routeName);
     });
   }
 
@@ -62,29 +53,24 @@ class _SplashScreenState extends State<SplashScreen> {
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Appcolors.primaryColor
+                color: Appcolors.primaryColor,
               ),
             ),
 
             const SizedBox(height: 6),
 
-            const Text(
-              "Bring nature home",
-              style: TextStyle(
-                fontSize: 13,
-                
-              ),
-            ),
+            const Text("Bring nature home", style: TextStyle(fontSize: 13)),
 
             const SizedBox(height: 50),
 
             SizedBox(
               width: 200,
               child: LinearProgressIndicator(
-                value:0.8,
+                value: 0.8,
                 backgroundColor: Appcolors.lightGrey,
-                valueColor:
-                    const AlwaysStoppedAnimation<Color>(Appcolors.secondaryColor),
+                valueColor: const AlwaysStoppedAnimation<Color>(
+                  Appcolors.secondaryColor,
+                ),
                 minHeight: 4,
               ),
             ),
@@ -93,10 +79,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
             const Text(
               "LOADING",
-              style: TextStyle(
-                letterSpacing: 2,
-                fontSize: 11,
-              ),
+              style: TextStyle(letterSpacing: 2, fontSize: 11),
             ),
           ],
         ),
@@ -112,10 +95,7 @@ class SearchingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text(
-          "Searching Screen",
-          style: TextStyle(fontSize: 24),
-        ),
+        child: Text("Searching Screen", style: TextStyle(fontSize: 24)),
       ),
     );
   }
