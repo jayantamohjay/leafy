@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../cartManagement/views/screens/cart_screen.dart';
+import '../../profile_management/views/screens/my_profile_screen.dart';
 import '../../searching/views/screens/searching_screen.dart';
 import '../widgets/bottom_nav_bar.dart';
 import 'home_screen.dart';
@@ -18,7 +19,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     HomeScreen(),
     DiscoverPage(),
     CartScreen(), //2nd
-    Center(child: Text("Account Page")), //3rd
+    MyProfileScreen(), //3rd
   ];
 
   @override
