@@ -21,7 +21,7 @@ class AppRouter {
       GoRoute(
         path: '/$splashName',
         name: splashName,
-        builder: (context, state) => const SplashScreen(),
+        builder: (context, state) => const MyProfileScreen(),
       ),
       GoRoute(
         path: '/$loginName',
