@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:leafy/core/themes/colors.dart';
+
+
+
 
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({super.key});
@@ -6,16 +10,20 @@ class MyProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 252, 255, 254),
+      backgroundColor: Appcolors.lightBackgroundColor,
 
       appBar: AppBar(
         title: const Text(
           "Account",
-          style: TextStyle(color: Color.fromARGB(255, 20, 43, 21),fontSize:16,fontWeight:FontWeight.bold),
+          style: TextStyle(
+            color: Appcolors.primaryColor,
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        backgroundColor: const Color(0xfff4f6f5),
+        backgroundColor: Appcolors.lightBackgroundColor,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Color.fromARGB(255, 27, 58, 27)),
+        iconTheme: const IconThemeData(color: Appcolors.primaryColor),
       ),
 
       body: ListView(
@@ -27,10 +35,11 @@ class MyProfileScreen extends StatelessWidget {
           Center(
             child: Stack(
               children: [
+
                 const CircleAvatar(
                   radius: 55,
-                  backgroundImage: NetworkImage(
-                    "https://randomuser.me/api/portraits/women/44.jpg",
+                  backgroundImage: AssetImage(
+                    "assets/images/image5.jpg",
                   ),
                 ),
 
@@ -39,13 +48,13 @@ class MyProfileScreen extends StatelessWidget {
                   right: 0,
                   child: Container(
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 21, 51, 21),
+                      color: Appcolors.primaryColor,
                       shape: BoxShape.circle,
                     ),
                     padding: const EdgeInsets.all(6),
                     child: const Icon(
                       Icons.edit,
-                      color: Colors.white,
+                      color: Appcolors.white,
                       size: 18,
                     ),
                   ),
@@ -56,14 +65,13 @@ class MyProfileScreen extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-         
           const Center(
             child: Text(
               "Elena Thorne",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
-                color: Color.fromARGB(255, 9, 29, 9),
+                color: Appcolors.black,
               ),
             ),
           ),
@@ -71,7 +79,7 @@ class MyProfileScreen extends StatelessWidget {
           const Center(
             child: Text(
               "elena.thorne@example.com",
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Appcolors.grey),
             ),
           ),
 
@@ -80,7 +88,7 @@ class MyProfileScreen extends StatelessWidget {
           const Text(
             "GENERAL",
             style: TextStyle(
-              color: Colors.grey,
+              color: Appcolors.grey,
               fontWeight: FontWeight.bold,
               letterSpacing: 1,
             ),
@@ -98,11 +106,12 @@ class MyProfileScreen extends StatelessWidget {
 
           profileTile(Icons.credit_card_outlined, "Payment Methods"),
 
-         const SizedBox(height: 35),
+          const SizedBox(height: 35),
+
           const Text(
             "PREFERENCES",
             style: TextStyle(
-              color: Colors.grey,
+              color: Appcolors.grey,
               fontWeight: FontWeight.bold,
               letterSpacing: 1,
             ),
@@ -119,11 +128,11 @@ class MyProfileScreen extends StatelessWidget {
   static Widget profileTile(IconData icon, String title) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Appcolors.white,
         borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(.1),
+            color: Appcolors.grey.withOpacity(.1),
             blurRadius: 8,
             spreadRadius: 2,
           )
@@ -131,14 +140,17 @@ class MyProfileScreen extends StatelessWidget {
       ),
       child: ListTile(
         leading: CircleAvatar(
-          backgroundColor: const Color(0xffE8F5E9),
-          child: Icon(icon, color: const Color.fromARGB(255, 7, 19, 8)),
+          backgroundColor: Appcolors.lightGrey,
+          child: Icon(icon, color: Appcolors.primaryColor),
         ),
-        title: Text(title),
+        title: Text(
+          title,
+          style: const TextStyle(color: Appcolors.black),
+        ),
         trailing: const Icon(
           Icons.arrow_forward_ios,
           size: 16,
-          color: Colors.grey,
+          color: Appcolors.grey,
         ),
         onTap: () {},
       ),
