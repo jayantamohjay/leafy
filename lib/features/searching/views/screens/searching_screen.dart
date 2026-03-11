@@ -46,7 +46,7 @@ class SearchingScreen extends StatelessWidget {
                       color: Color(0xffF2A65A),
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.search, color: Colors.white),
+                    child: const Icon(Icons.person, color: Colors.white),
                   )
                 ],
               ),
@@ -163,6 +163,7 @@ class SearchingScreen extends StatelessWidget {
                             style: TextStyle(
                               color: Color(0xff1E5F3D),
                               fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline,
                             ),
                           )
                         ],
