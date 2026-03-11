@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leafy/core/themes/colors.dart';
 
-
-
-
 class MyProfileScreen extends StatelessWidget {
   const MyProfileScreen({super.key});
 
@@ -39,7 +36,7 @@ class MyProfileScreen extends StatelessWidget {
                 const CircleAvatar(
                   radius: 55,
                   backgroundImage: AssetImage(
-                    "assets/images/image5.jpg",
+                    "assets/images/image5.png",
                   ),
                 ),
 
@@ -79,7 +76,9 @@ class MyProfileScreen extends StatelessWidget {
           const Center(
             child: Text(
               "elena.thorne@example.com",
-              style: TextStyle(color: Appcolors.grey),
+              style: TextStyle(
+                color: Appcolors.grey,
+              ),
             ),
           ),
 
@@ -141,17 +140,27 @@ class MyProfileScreen extends StatelessWidget {
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: Appcolors.lightGrey,
-          child: Icon(icon, color: Appcolors.primaryColor),
+          child: Icon(
+            icon,
+            color: Appcolors.primaryColor,
+          ),
         ),
+
         title: Text(
           title,
-          style: const TextStyle(color: Appcolors.black),
+          style: const TextStyle(
+            color: Appcolors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          ),
         ),
+
         trailing: const Icon(
           Icons.arrow_forward_ios,
           size: 16,
           color: Appcolors.grey,
         ),
+
         onTap: () {},
       ),
     );
