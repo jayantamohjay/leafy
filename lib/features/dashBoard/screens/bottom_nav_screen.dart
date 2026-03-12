@@ -17,7 +17,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
 
   final List<Widget> _pages = [
     HomeScreen(),
-    DiscoverPage(),
+    SearchingScreen(),
     CartScreen(), //2nd
     MyProfileScreen(), //3rd
   ];
