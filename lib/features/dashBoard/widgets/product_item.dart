@@ -31,7 +31,7 @@ class ProductItem extends StatelessWidget {
               'Monstera Deliciosa',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Appcolors.black,
               ),
             ),
           ),
@@ -43,15 +43,15 @@ class ProductItem extends StatelessWidget {
                 '\$45.00',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.green[900],
+                  color: Appcolors.primaryColor,
                 ),
               ),
               CircleAvatar(
                 minRadius: 14,
-                backgroundColor: Colors.green[900],
+                backgroundColor: Appcolors.primaryColor,
                 child: Icon(
                   Icons.shopping_cart_outlined,
-                  color: Colors.white,
+                  color: Appcolors.white,
                   size: 14,
                 ),
               ),
