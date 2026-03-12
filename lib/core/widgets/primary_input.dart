@@ -1,44 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:leafy/core/themes/colors.dart';
 
 class PrimaryInput extends StatelessWidget {
   final String label;
   final String hintText;
-  final TextEditingController controller;
+  final TextInputType? keyboardType;
+  final TextEditingController? controller;
   final bool obscureText;
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
+
+  final List<TextInputFormatter>? inputFormatters;
+
   const PrimaryInput({
     super.key,
     required this.label,
+    this.keyboardType,
     required this.hintText,
-    required this.controller,
+    this.controller,
     this.obscureText = false,
     this.validator,
     this.suffixIcon,
+    this.prefixIcon,
+    this.inputFormatters,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label),
+
+        const SizedBox(height: 8),
+
         TextField(
           controller: controller,
-
+          obscureText: obscureText,
+          keyboardType: keyboardType,
+          inputFormatters: inputFormatters,
           decoration: InputDecoration(
             hintText: hintText,
-            suffix: suffixIcon,
+            prefixIcon: prefixIcon,
+            suffixIcon: suffixIcon,
             fillColor: Appcolors.white,
             filled: true,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none,
             ),
           ),
-          obscureText: obscureText,
         ),
       ],
     );

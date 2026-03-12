@@ -5,7 +5,8 @@ import 'package:leafy/features/cartManagement/views/screens/cart_screen.dart';
 import 'package:leafy/features/dashBoard/screens/bottom_nav_screen.dart';
 import 'package:leafy/features/on_boarding/views/screens/splash_screen.dart';
 import 'package:leafy/features/profile_management/views/screens/my_profile_screen.dart';
-import 'package:leafy/features/searching/views/screens/searching_screen.dart';
+import 'package:leafy/features/searching/views/screens/searching_screen.dart'
+    hide SearchingScreen;
 
 class AppRouter {
   static const String splashName = 'splash';
@@ -13,7 +14,7 @@ class AppRouter {
   static const String registrationName = 'registration';
   static const String dashboardName = 'dashboard';
   static const String cartName = 'cart';
-  static const String searchName = 'search';
+  static const String homeName = 'home';
   static const String profileName = 'profile';
 
   static final GoRouter router = GoRouter(
@@ -36,18 +37,14 @@ class AppRouter {
       GoRoute(
         path: '/$dashboardName',
         name: dashboardName,
-        builder: (context, state) => const BottomNavScreen(),
+        builder: (context, state) => BottomNavScreen(),
       ),
       GoRoute(
         path: '/$cartName',
         name: cartName,
         builder: (context, state) => const CartScreen(),
       ),
-      GoRoute(
-        path: '/$searchName',
-        name: searchName,
-        builder: (context, state) => const SearchingScreen(),
-      ),
+
       GoRoute(
         path: '/$profileName',
         name: profileName,
