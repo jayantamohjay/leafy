@@ -8,7 +8,6 @@ import '../../../../core/themes/colors.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
-
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -17,8 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 5), () {
       context.goNamed(AppRouter.loginName);
     });
   }
@@ -26,7 +24,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xFFE9ECEB),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -46,9 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ),
             ),
-
             const SizedBox(height: 40),
-
             const Text(
               "Leafy",
               style: TextStyle(
@@ -59,18 +54,17 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
 
             const SizedBox(height: 6),
-
             const Text("Bring nature home", style: TextStyle(fontSize: 13)),
-
             const SizedBox(height: 50),
-
             SizedBox(
-              width: 20,
-              height: 20,
+              width: 30,
+              height: 30,
               child: CircularProgressIndicator(
-                value: 0.50,
-                backgroundColor: Colors.grey,
-                valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
+                strokeWidth: 3,
+                backgroundColor: Appcolors.lightGrey,
+                valueColor: const AlwaysStoppedAnimation<Color>(
+                  Appcolors.secondaryColor,
+                ),
               ),
             ),
 

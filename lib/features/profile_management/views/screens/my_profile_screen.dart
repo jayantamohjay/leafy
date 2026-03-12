@@ -17,19 +17,18 @@ class MyProfileScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-
               const Text(
                 "Profile Options",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 20),
 
               ListTile(
-                leading: const Icon(Icons.camera, color: Appcolors.primaryColor),
+                leading: const Icon(
+                  Icons.camera,
+                  color: Appcolors.primaryColor,
+                ),
                 title: const Text("Camera"),
                 onTap: () {
                   Navigator.pop(context);
@@ -41,7 +40,6 @@ class MyProfileScreen extends StatelessWidget {
                 title: const Text("Gallery"),
                 onTap: () {
                   Navigator.pop(context);
-                  
                 },
               ),
             ],
@@ -59,7 +57,6 @@ class MyProfileScreen extends StatelessWidget {
           title: const Text("Logout"),
           content: const Text("Are you sure you want to logout?"),
           actions: [
-
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
@@ -67,18 +64,16 @@ class MyProfileScreen extends StatelessWidget {
               child: const Text("Cancel"),
             ),
 
-           ElevatedButton(
-  onPressed: () {
-    Navigator.pushAndRemoveUntil(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const LoginScreen(),
-      ),
-      (route) => false,
-    );
-  },
-  child: const Text("Proceed"),
-),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  (route) => false,
+                );
+              },
+              child: const Text("Proceed"),
+            ),
           ],
         );
       },
@@ -88,17 +83,8 @@ class MyProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Appcolors.lightBackgroundColor,
-
       appBar: AppBar(
-        title: const Text(
-          "Account",
-          style: TextStyle(
-            color: Appcolors.primaryColor,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
+        title: const Text("Account"),
         backgroundColor: Appcolors.lightBackgroundColor,
         elevation: 0,
         iconTheme: const IconThemeData(color: Appcolors.primaryColor),
@@ -107,7 +93,6 @@ class MyProfileScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         children: [
-
           const SizedBox(height: 20),
 
           GestureDetector(
@@ -116,50 +101,44 @@ class MyProfileScreen extends StatelessWidget {
             },
             child: Column(
               children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Appcolors.white,
+                      ),
+                      child: const CircleAvatar(
+                        radius: 55,
+                        backgroundImage: AssetImage("assets/images/image5.png"),
+                      ),
+                    ),
+                    Positioned(
+                      bottom: 4,
+                      right: 4,
+                      child: Container(
+                        padding: const EdgeInsets.all(7),
+                        decoration: BoxDecoration(
+                          color: Appcolors.primaryColor,
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: Appcolors.lightBackgroundColor,
+                            width: 2,
+                          ),
+                        ),
+                        child: const Icon(
+                          Icons.edit,
+                          size: 16,
+                          color: Appcolors.lightBackgroundColor,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
 
-               Stack(
-  alignment: Alignment.center,
-  children: [
-
-    Container(
-      padding: const EdgeInsets.all(6),
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Appcolors.white,
-        
-      ),
-      child: const CircleAvatar(
-        radius: 55,
-        backgroundImage: AssetImage(
-          "assets/images/image5.png",
-        ),
-      ),
-    ),
-    Positioned(
-      bottom: 4,
-      right: 4,
-      child: Container(
-        padding: const EdgeInsets.all(7),
-        decoration: BoxDecoration(
-          color: Appcolors.primaryColor,
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: Appcolors.lightBackgroundColor,
-            width: 2,
-          ),
-        ),
-        child: const Icon(
-          Icons.edit,
-          size: 16,
-          color:Appcolors.lightBackgroundColor,
-        ),
-      ),
-    ),
-  ],
-),
-
-              
-             const  SizedBox(),
+                const SizedBox(),
 
                 const Text(
                   "Elena Thorne",
@@ -172,9 +151,7 @@ class MyProfileScreen extends StatelessWidget {
 
                 const Text(
                   "elena.thorne@example.com",
-                  style: TextStyle(
-                    color: Appcolors.grey,
-                  ),
+                  style: TextStyle(color: Appcolors.grey),
                 ),
               ],
             ),
@@ -220,13 +197,11 @@ class MyProfileScreen extends StatelessWidget {
 
           const SizedBox(height: 10),
 
-         
           profileTile(
             Icons.logout,
             "Logout",
             iconColor: Appcolors.red,
-            
-            
+
             onTap: (context) {
               showLogoutDialog(context);
             },
@@ -243,7 +218,6 @@ class MyProfileScreen extends StatelessWidget {
     String title, {
     Color iconColor = Appcolors.primaryColor,
 
-
     Function(BuildContext)? onTap,
   }) {
     return Builder(
@@ -256,17 +230,13 @@ class MyProfileScreen extends StatelessWidget {
               color: Appcolors.grey.withOpacity(.1),
               blurRadius: 8,
               spreadRadius: 2,
-            )
+            ),
           ],
         ),
         child: ListTile(
           leading: CircleAvatar(
-            backgroundColor:iconColor.withValues(alpha: 0.1),
-            child: Icon(
-              icon,
-              size: 18,
-              color: iconColor,
-            ),
+            backgroundColor: iconColor.withValues(alpha: 0.1),
+            child: Icon(icon, size: 18, color: iconColor),
           ),
 
           title: Text(

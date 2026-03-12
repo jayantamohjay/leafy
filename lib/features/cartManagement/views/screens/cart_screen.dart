@@ -182,15 +182,7 @@ class _CartScreenState extends State<CartScreen> {
     return Scaffold(
       backgroundColor: Appcolors.lightBackgroundColor,
 
-      appBar: AppBar(
-        backgroundColor: Appcolors.lightBackgroundColor,
-        elevation: 0,
-        centerTitle: true,
-        title: const Text(
-          "Your Basket",
-          style: TextStyle(color: Appcolors.black, fontWeight: FontWeight.bold),
-        ),
-      ),
+      appBar: AppBar(title: const Text("Your Basket")),
 
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),

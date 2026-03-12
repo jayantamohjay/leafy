@@ -67,202 +67,180 @@ class _SearchingScreenState extends State<SearchingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      appBar: AppBar(title: Text("Discover")),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              height: 50,
+              decoration: BoxDecoration(
+                color: Appcolors.white,
+                borderRadius: BorderRadius.circular(25),
+              ),
+              child: Row(
                 children: [
-                  const Text(
-                    "Discover",
-                    style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+                  const Icon(Icons.search, color: Appcolors.grey),
+                  const SizedBox(width: 10),
+
+                  Expanded(
+                    child: TextField(
+                      controller: searchController,
+                      onSubmitted: addSearch,
+                      decoration: const InputDecoration(
+                        hintText: "Search for your next plant...",
+                        border: InputBorder.none,
+                      ),
+                    ),
                   ),
+
+                  Container(
+                    decoration: const BoxDecoration(
+                      color: Appcolors.secondaryColor,
+                      shape: BoxShape.circle,
+                    ),
+                    padding: const EdgeInsets.all(8),
+                    child: const Icon(
+                      Icons.tune,
+                      color: Appcolors.white,
+                      size: 18,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 25),
+
+            const Text(
+              "SUGGESTED CATEGORIES",
+              style: TextStyle(
+                fontSize: 20,
+                color: Appcolors.grey,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            Wrap(
+              spacing: 18,
+              runSpacing: 18,
+              children: List.generate(categories.length, (index) {
+                return categoryChip(
+                  categories[index]["name"],
+                  categories[index]["icon"],
+                  selectedCategory == index,
+                  () {
+                    setState(() {
+                      selectedCategory = index;
+                    });
+                  },
+                );
+              }),
+            ),
+
+            const SizedBox(height: 25),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "RECENT SEARCHES",
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Appcolors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: clearAll,
+                  child: const Text(
+                    "Clear All",
+                    style: TextStyle(fontSize: 12, color: Appcolors.grey),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 12),
+
+            Expanded(
+              child: ListView.builder(
+                itemCount: recentSearches.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(Icons.history, color: Colors.grey),
+                    title: Text(recentSearches[index]),
+                    onTap: () {
+                      selectRecentSearch(recentSearches[index]);
+                    },
+                    trailing: GestureDetector(
+                      onTap: () => removeSearch(index),
+                      child: const Icon(Icons.close, size: 18),
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Appcolors.lightGrey,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Can't find what you need?",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                        const SizedBox(height: 5),
+
+                        GestureDetector(
+                          onTap: openBotanistScreen,
+                          child: const Text(
+                            "Talk to a botanist",
+                            style: TextStyle(
+                              color: Appcolors.green,
+                              fontWeight: FontWeight.w600,
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
                   Container(
                     height: 40,
                     width: 40,
-                    decoration: const BoxDecoration(
-                      color: Color(0xffF2A65A),
+                    decoration: BoxDecoration(
+                      color: Colors.grey.shade200,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.person, color: Colors.black),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 20),
-
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Appcolors.white,
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Row(
-                  children: [
-                    const Icon(Icons.search, color: Appcolors.grey),
-                    const SizedBox(width: 10),
-
-                    Expanded(
-                      child: TextField(
-                        controller: searchController,
-                        onSubmitted: addSearch,
-                        decoration: const InputDecoration(
-                          hintText: "Search for your next plant...",
-                          border: InputBorder.none,
-                        ),
-                      ),
-                    ),
-
-                    Container(
-                      decoration: const BoxDecoration(
-                        color: Appcolors.secondaryColor,
-                        shape: BoxShape.circle,
-                      ),
-                      padding: const EdgeInsets.all(8),
-                      child: const Icon(
-                        Icons.tune,
-                        color: Appcolors.white,
-                        size: 18,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 25),
-
-              const Text(
-                "SUGGESTED CATEGORIES",
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Appcolors.grey,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              Wrap(
-                spacing: 18,
-                runSpacing: 18,
-                children: List.generate(categories.length, (index) {
-                  return categoryChip(
-                    categories[index]["name"],
-                    categories[index]["icon"],
-                    selectedCategory == index,
-                    () {
-                      setState(() {
-                        selectedCategory = index;
-                      });
-                    },
-                  );
-                }),
-              ),
-
-              const SizedBox(height: 25),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "RECENT SEARCHES",
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Appcolors.grey,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: clearAll,
-                    child: const Text(
-                      "Clear All",
-                      style: TextStyle(fontSize: 12, color: Appcolors.grey),
+                    child: IconButton(
+                      icon: const Icon(Icons.help_center_outlined),
+                      onPressed: openBotanistScreen,
                     ),
                   ),
                 ],
               ),
+            ),
 
-              const SizedBox(height: 12),
-
-              Expanded(
-                child: ListView.builder(
-                  itemCount: recentSearches.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      contentPadding: EdgeInsets.zero,
-                      leading: const Icon(Icons.history, color: Colors.grey),
-                      title: Text(recentSearches[index]),
-                      onTap: () {
-                        selectRecentSearch(recentSearches[index]);
-                      },
-                      trailing: GestureDetector(
-                        onTap: () => removeSearch(index),
-                        child: const Icon(Icons.close, size: 18),
-                      ),
-                    );
-                  },
-                ),
-              ),
-
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Appcolors.lightGrey,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Can't find what you need?",
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                          const SizedBox(height: 5),
-
-                          GestureDetector(
-                            onTap: openBotanistScreen,
-                            child: const Text(
-                              "Talk to a botanist",
-                              style: TextStyle(
-                                color: Appcolors.green,
-                                fontWeight: FontWeight.w600,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-                    Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        icon: const Icon(Icons.help_center_outlined),
-                        onPressed: openBotanistScreen,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 20),
-            ],
-          ),
+            const SizedBox(height: 20),
+          ],
         ),
       ),
     );
