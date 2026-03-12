@@ -278,7 +278,7 @@ class _SearchingScreenState extends State<SearchingScreen> {
                         shape: BoxShape.circle,
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.help),
+                        icon: const Icon(Icons.help_center_outlined),
                         onPressed: openBotanistScreen,
                       ),
                     )
