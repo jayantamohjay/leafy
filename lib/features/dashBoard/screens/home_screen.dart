@@ -59,9 +59,10 @@ class _SearchingScreenState extends State<HomeScreen> {
         ],
       ),
 
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 10),
             Padding(
@@ -83,9 +84,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
-
             SizedBox(height: 2),
-
             SizedBox(
               height: 40,
               child: Row(
@@ -98,14 +97,11 @@ class _SearchingScreenState extends State<HomeScreen> {
                     ),
                     label: Text("All Plants"),
                     selected: false,
-                    // selectedColor: Appcolors.primaryColor,
                     backgroundColor: Appcolors.primaryColor,
                     labelStyle: TextStyle(color: Appcolors.white),
                     onSelected: (value) {},
                   ),
-
                   SizedBox(width: 10),
-
                   ChoiceChip(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.transparent),
@@ -120,9 +116,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                     labelStyle: TextStyle(color: Appcolors.black),
                     onSelected: (value) {},
                   ),
-
                   SizedBox(width: 10),
-
                   ChoiceChip(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.transparent),
@@ -137,9 +131,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                     labelStyle: const TextStyle(color: Appcolors.black),
                     onSelected: (value) {},
                   ),
-
                   SizedBox(width: 10),
-
                   ChoiceChip(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.transparent),
@@ -157,9 +149,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
             SizedBox(height: 4),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -180,12 +170,8 @@ class _SearchingScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
-            SizedBox(height: 5),
-
             SizedBox(
-              height: MediaQuery.sizeOf(context).height * 0.3,
-              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.of(context).size.height * 0.3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: 10,
@@ -194,9 +180,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                 },
               ),
             ),
-
             SizedBox(height: 10),
-
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
@@ -217,21 +201,21 @@ class _SearchingScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-
-            Expanded(
-              child: GridView.builder(
-                padding: const EdgeInsets.all(10),
-                itemCount: 20,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 0.65,
-                ),
-                itemBuilder: (context, index) {
-                  return const ProductsCard();
-                },
+            GridView.builder(
+              padding: const EdgeInsets.all(10),
+              itemCount: 20,
+              physics:
+                  const NeverScrollableScrollPhysics(), 
+              shrinkWrap: true, 
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                childAspectRatio: 0.65,
               ),
+              itemBuilder: (context, index) {
+                return const ProductsCard();
+              },
             ),
           ],
         ),

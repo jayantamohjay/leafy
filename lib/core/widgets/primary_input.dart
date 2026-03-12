@@ -36,7 +36,7 @@ class PrimaryInput extends StatelessWidget {
 
         const SizedBox(height: 8),
 
-        TextField(
+        TextFormField(
           controller: controller,
           obscureText: obscureText,
           keyboardType: keyboardType,
@@ -51,7 +51,10 @@ class PrimaryInput extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide.none,
             ),
+          
           ),
+
+          validator: validator,
         ),
       ],
     );
