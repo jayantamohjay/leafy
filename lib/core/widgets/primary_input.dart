@@ -4,15 +4,17 @@ import 'package:leafy/core/themes/colors.dart';
 class PrimaryInput extends StatelessWidget {
   final String label;
   final String hintText;
-  final TextEditingController controller;
+  final TextInputType? keyboardType;
+  final TextEditingController? controller;
   final bool obscureText;
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
   const PrimaryInput({
     super.key,
     required this.label,
+     this.keyboardType,
     required this.hintText,
-    required this.controller,
+     this.controller,
     this.obscureText = false,
     this.validator,
     this.suffixIcon,
@@ -26,9 +28,10 @@ class PrimaryInput extends StatelessWidget {
       children: [
         Text(label),
         SizedBox(height: 8),
-        TextField(
+        TextFormField(
           controller: controller,
-
+          keyboardType: keyboardType,
+          validator: validator,
           decoration: InputDecoration(
             hintText: hintText,
             suffixIcon: suffixIcon,
