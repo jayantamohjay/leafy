@@ -12,14 +12,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  
   final _formKey = GlobalKey<FormState>();
 
-  
   bool _obscurePassword = true;
 
   @override
@@ -55,7 +52,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               SizedBox(height: 20),
 
-              
               Form(
                 key: _formKey,
                 child: SizedBox(
@@ -64,7 +60,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     padding: const EdgeInsets.all(8.0),
                     child: Column(
                       children: [
-                        
                         PrimaryInput(
                           label: 'Email Address',
                           hintText: 'hello@example.com',
@@ -75,13 +70,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             if (value == null || value.isEmpty) {
                               return 'Email is required';
                             }
-        
+
                             return null;
                           },
                         ),
                         SizedBox(height: 15),
 
-                        
                         PrimaryInput(
                           label: 'Password',
                           hintText: '.........',
@@ -118,29 +112,26 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         SizedBox(height: 25),
 
-                       
                         ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Appcolors.primaryColor,
                             minimumSize: Size(350, 60),
                           ),
                           onPressed: () {
-                          
-                              if (_formKey.currentState!.validate()) {
-                              
+                            if (_formKey.currentState!.validate()) {
                               context.goNamed(AppRouter.dashboardName);
                             }
-                          
-                           
                           },
                           child: Text(
                             'Login',
-                            style: TextStyle(fontSize: 17, color: Appcolors.white),
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Appcolors.white,
+                            ),
                           ),
                         ),
                         SizedBox(height: 25),
 
-                       
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

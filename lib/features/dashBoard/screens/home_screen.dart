@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../core/themes/colors.dart';
 import '../widgets/product_item.dart';
 import '../widgets/products_card.dart';
 
@@ -62,7 +63,7 @@ class _SearchingScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-             SizedBox(height: 10),
+            SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(25),
               child: TextField(
@@ -103,7 +104,7 @@ class _SearchingScreenState extends State<HomeScreen> {
                     onSelected: (value) {},
                   ),
 
-                   SizedBox(width: 10),
+                  SizedBox(width: 10),
 
                   ChoiceChip(
                     shape: RoundedRectangleBorder(
@@ -195,7 +196,6 @@ class _SearchingScreenState extends State<HomeScreen> {
             ),
 
             SizedBox(height: 10),
-          
 
             Padding(
               padding: const EdgeInsets.all(8.0),
