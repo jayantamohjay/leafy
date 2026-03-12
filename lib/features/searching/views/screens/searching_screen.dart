@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:leafy/core/themes/colors.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SearchingScreen(),
-    );
-  }
-}
-
 class SearchingScreen extends StatefulWidget {
   const SearchingScreen({super.key});
 
