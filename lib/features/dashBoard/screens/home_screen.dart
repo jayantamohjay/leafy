@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:leafy/core/themes/colors.dart';
-
 import '../widgets/product_item.dart';
 import '../widgets/products_card.dart';
 

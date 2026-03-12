@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:leafy/core/themes/colors.dart';
 
 class PrimaryInput extends StatelessWidget {
@@ -8,6 +9,11 @@ class PrimaryInput extends StatelessWidget {
   final bool obscureText;
   final String? Function(String?)? validator;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
+
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
+
   const PrimaryInput({
     super.key,
     required this.label,
@@ -16,21 +22,28 @@ class PrimaryInput extends StatelessWidget {
     this.obscureText = false,
     this.validator,
     this.suffixIcon,
+    this.prefixIcon,
+    this.keyboardType,
+    this.inputFormatters,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(label),
-        SizedBox(height: 8),
+
+        const SizedBox(height: 8),
+
         TextField(
           controller: controller,
-
+          obscureText: obscureText,
+          keyboardType: keyboardType,
+          inputFormatters: inputFormatters,
           decoration: InputDecoration(
             hintText: hintText,
+            prefixIcon: prefixIcon,
             suffixIcon: suffixIcon,
             fillColor: Appcolors.white,
             filled: true,
@@ -39,7 +52,6 @@ class PrimaryInput extends StatelessWidget {
               borderSide: BorderSide.none,
             ),
           ),
-          obscureText: obscureText,
         ),
       ],
     );
