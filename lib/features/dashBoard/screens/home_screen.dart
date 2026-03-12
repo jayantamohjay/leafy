@@ -87,66 +87,69 @@ class _SearchingScreenState extends State<HomeScreen> {
             SizedBox(height: 2),
             SizedBox(
               height: 40,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  ChoiceChip(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(20),
+              child: SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ChoiceChip(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      label: Text("All Plants"),
+                      selected: false,
+                      backgroundColor: Appcolors.primaryColor,
+                      labelStyle: TextStyle(color: Appcolors.white),
+                      onSelected: (value) {},
                     ),
-                    label: Text("All Plants"),
-                    selected: false,
-                    backgroundColor: Appcolors.primaryColor,
-                    labelStyle: TextStyle(color: Appcolors.white),
-                    onSelected: (value) {},
-                  ),
-                  SizedBox(width: 10),
-                  ChoiceChip(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(20),
+                    SizedBox(width: 10),
+                    ChoiceChip(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      label: Text(
+                        "Indoor",
+                        style: TextStyle(color: Appcolors.primaryColor),
+                      ),
+                      selected: false,
+                      backgroundColor: Appcolors.lightGrey,
+                      labelStyle: TextStyle(color: Appcolors.black),
+                      onSelected: (value) {},
                     ),
-                    label: Text(
-                      "Indoor",
-                      style: TextStyle(color: Appcolors.primaryColor),
+                    SizedBox(width: 10),
+                    ChoiceChip(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      label: const Text(
+                        "Outdoor",
+                        style: TextStyle(color: Appcolors.primaryColor),
+                      ),
+                      selected: false,
+                      backgroundColor: Appcolors.lightGrey,
+                      labelStyle: const TextStyle(color: Appcolors.black),
+                      onSelected: (value) {},
                     ),
-                    selected: false,
-                    backgroundColor: Appcolors.lightGrey,
-                    labelStyle: TextStyle(color: Appcolors.black),
-                    onSelected: (value) {},
-                  ),
-                  SizedBox(width: 10),
-                  ChoiceChip(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(20),
+                    SizedBox(width: 10),
+                    ChoiceChip(
+                      shape: RoundedRectangleBorder(
+                        side: BorderSide(color: Colors.transparent),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      label: Text(
+                        "Succulents",
+                        style: TextStyle(color: Appcolors.primaryColor),
+                      ),
+                      selected: false,
+                      backgroundColor: Appcolors.lightGrey,
+                      labelStyle: TextStyle(color: Appcolors.black),
+                      onSelected: (value) {},
                     ),
-                    label: const Text(
-                      "Outdoor",
-                      style: TextStyle(color: Appcolors.primaryColor),
-                    ),
-                    selected: false,
-                    backgroundColor: Appcolors.lightGrey,
-                    labelStyle: const TextStyle(color: Appcolors.black),
-                    onSelected: (value) {},
-                  ),
-                  SizedBox(width: 10),
-                  ChoiceChip(
-                    shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Colors.transparent),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    label: Text(
-                      "Succulents",
-                      style: TextStyle(color: Appcolors.primaryColor),
-                    ),
-                    selected: false,
-                    backgroundColor: Appcolors.lightGrey,
-                    labelStyle: TextStyle(color: Appcolors.black),
-                    onSelected: (value) {},
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
             SizedBox(height: 4),
