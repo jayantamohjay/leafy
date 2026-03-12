@@ -65,14 +65,12 @@ class _SplashScreenState extends State<SplashScreen> {
             const SizedBox(height: 50),
 
             SizedBox(
-              width: 200,
-              child: LinearProgressIndicator(
-                value: 0.8,
-                backgroundColor: Appcolors.lightGrey,
-                valueColor: const AlwaysStoppedAnimation<Color>(
-                  Appcolors.secondaryColor,
-                ),
-                minHeight: 4,
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                value: 0.50,
+                backgroundColor: Colors.grey,
+                valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
               ),
             ),
 
